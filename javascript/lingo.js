@@ -45,9 +45,7 @@ function woordPlaatsen(woord){
             document.getElementById("W"+ attempt +"L"+ (i+1)).innerHTML = "<h1></h1>" + lettersinput[i];
 
             if(lettersrandom[i] == lettersinput[i]){
-                document.getElementById("W"+ attempt +"L" + (i+1)).style.backgroundColor = "green";
-                document.getElementById("W"+ (attempt + 1) + "L" + (i+1)).innerHTML
-                
+                document.getElementById("W"+ attempt +"L" + (i+1)).style.backgroundColor = "green";                
             }else{
                 if(randomwoord.includes(lettersinput[i])){
                     document.getElementById("W"+ attempt +"L"+(i+1)).style.borderRadius = "50%";
