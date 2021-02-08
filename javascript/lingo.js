@@ -9,6 +9,7 @@ var attempts = 5;
 var attempt = 0;
 var lettersinput = [];
 var lettersrandom = [];
+var lettersrandomCOPY = [];
 
 function maakBord(){
     for(var l = 1; l <= 5; l++){
@@ -26,7 +27,7 @@ function randomWoord(){
 }
 
 function eersteLetter(){
-    var blok1 = document.getElementById("W1L1" );
+    var blok1 = document.getElementById("W1L1");
     blok1.innerHTML = "<h1></h1>" + randomwoord[0];
 }
 
@@ -40,14 +41,22 @@ function woordPlaatsen(woord){
     for(var i = 0; i < randomwoord.length; i++){
         lettersrandom[i] = randomwoord[i];
     }
+
+    lettersrandomCOPY = lettersrandom;
+
+    console.log(lettersrandomCOPY);
+    
+    if(lettersrandomCOPY.includes(lettersinput[i])){
+
+    }
     //plaats de woordjes
         for(var i = 0; i < lettersinput.length; i++){
             document.getElementById("W"+ attempt +"L"+ (i+1)).innerHTML = "<h1></h1>" + lettersinput[i];
-
+            
             if(lettersrandom[i] == lettersinput[i]){
                 document.getElementById("W"+ attempt +"L" + (i+1)).style.backgroundColor = "green";                
             }else{
-                if(randomwoord.includes(lettersinput[i])){
+                if(lettersrandomCOPY.includes(lettersinput[i])){
                     document.getElementById("W"+ attempt +"L"+(i+1)).style.borderRadius = "50%";
                     document.getElementById("W"+ attempt +"L"+(i+1)).style.backgroundColor = "yellow";
             }
