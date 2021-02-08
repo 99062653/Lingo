@@ -24,11 +24,11 @@ function maakBord(){
 function randomWoord(){
     randomwoord = words[Math.floor(Math.random() * words.length)];
     console.log(randomwoord);
+    eersteLetter();
 }
 
 function eersteLetter(){
-    var blok1 = document.getElementById("W1L1");
-    blok1.innerHTML = "<h1></h1>" + randomwoord[0];
+    document.getElementById("W1L1").innerHTML = "<h1></h1>" +   randomwoord[0];
 }
 
 function woordPlaatsen(woord){
@@ -41,26 +41,19 @@ function woordPlaatsen(woord){
     for(var i = 0; i < randomwoord.length; i++){
         lettersrandom[i] = randomwoord[i];
     }
-
-    lettersrandomCOPY = lettersrandom;
-
-    console.log(lettersrandomCOPY);
-    
-    if(lettersrandomCOPY.includes(lettersinput[i])){
-
-    }
     //plaats de woordjes
         for(var i = 0; i < lettersinput.length; i++){
             document.getElementById("W"+ attempt +"L"+ (i+1)).innerHTML = "<h1></h1>" + lettersinput[i];
             
             if(lettersrandom[i] == lettersinput[i]){
-                document.getElementById("W"+ attempt +"L" + (i+1)).style.backgroundColor = "green";                
+                document.getElementById("W"+ attempt +"L" + (i+1)).style.backgroundColor = "green";
+                lettersrandomCOPY = [lettersrandom.splice[i]];
+                console.log("letters = " + lettersrandomCOPY);
             }else{
                 if(lettersrandomCOPY.includes(lettersinput[i])){
                     document.getElementById("W"+ attempt +"L"+(i+1)).style.borderRadius = "50%";
                     document.getElementById("W"+ attempt +"L"+(i+1)).style.backgroundColor = "yellow";
             }
-        
         }
     }
 }
@@ -68,6 +61,7 @@ function woordPlaatsen(woord){
 function checkWoord(woord){
     attempt++
     woordPlaatsen(woord);
+    document.getElementById("W"+ attempt + "L1").innerHTML = "<h1></h1>" + randomwoord[0];
     if(attempt >= attempts){
         alert("Helaas, je hebt verloren.");
         location.reload();
@@ -81,4 +75,3 @@ function checkWoord(woord){
 
 maakBord();
 randomWoord();
-eersteLetter();
