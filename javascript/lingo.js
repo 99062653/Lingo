@@ -44,25 +44,31 @@ function woordPlaatsen(woord){
     for(var i = 0; i < randomwoord.length; i++) {
         lettersrandomCOPY[i] = randomwoord[i];
     }
-    //plaats de woordjes
-        for(var i = 0; i < lettersinput.length; i++) {
-            document.getElementById("W"+ attempt +"L"+ (i+1)).innerHTML = "<h1></h1>" + lettersinput[i];
-            
-            if(lettersrandom[i] == lettersinput[i]) {
-                document.getElementById("W"+ attempt +"L" + (i+1)).style.backgroundColor = "green";
-                document.getElementById("W"+ attempt +"L"+(i+1)).style.color = "black";
-                lettersrandomCOPY[i] = "";
-                console.log(lettersrandomCOPY);
-            }else{
-                if(lettersrandomCOPY.includes(lettersinput[i])) {
-                    document.getElementById("W"+ attempt +"L"+(i+1)).style.borderRadius = "50%";
-                    document.getElementById("W"+ attempt +"L"+(i+1)).style.backgroundColor = "yellow";
-                    document.getElementById("W"+ attempt +"L"+(i+1)).style.color = "black";
-                    console.log("W"+ attempt +"L"+(i+1));
-            }
+    for(var i = 0; i < lettersinput.length; i++){
+        document.getElementById("W" + attempt + "L" +(i+1)).innerHTML="<h1></h1>"+ lettersinput[i];
+
+        if(lettersinput[i] == lettersrandom[i]){
+            document.getElementById("W" + attempt + "L" +(i+1)).style.backgroundColor="green";
+            lettersrandom[i] = null;
         }
+
+    }
+    for(var i = 0; i < lettersinput.length; i++){
+        document.getElementById("W" + attempt + "L" +(i+1)).innerHTML="<h1></h1>"+ lettersinput[i];
+
+        if(lettersinput[i]==lettersrandom[i]){
+            document.getElementById("W" + attempt + "L" +(i+1)).style.backgroundColor="green";
+        }
+
+            if(lettersrandom.includes(lettersinput[i])){
+                document.getElementById("W" + attempt + "L" +(i+1)).style.backgroundColor="yellow";
+                document.getElementById("W" + attempt + "L" +(i+1)).style.borderRadius="50%";
+
+            }
     }
 }
+
+
 
 function checkWoord(woord) {
     attempt++
